@@ -1,0 +1,156 @@
+.info-panel {
+    margin-bottom: 5px;
+}
+
+.custom-left {
+    top: 9%;
+    left: 1%;
+    bottom: 0;
+    width: 19%;
+    height: 90%;
+}
+
+.custom-main {
+    width: 78%;
+    height: 70%;
+    top: 9%;
+    left: 21%;
+    margin-right: 1%;
+}
+
+.custom-left,
+.custom-main {
+    position: fixed;
+    z-index: 100;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.custom-result {
+    position: fixed;
+    width: 37%;
+    height: 19%;
+    top: 80%;
+    left: 62%;
+}
+
+.custom-result .progress {
+    position: absolute;
+    top: 70%;
+    left: 15%;
+    width: 70%;
+}
+
+.custom-result .result {
+    position: absolute;
+    font-size: 20px;
+    top: 30%;
+    width: 100%;
+    text-align: center;
+    color: #BEC8C8;
+}
+
+.custom-table > tbody > tr > td > input {
+    border: none;
+    color: #fff;
+    background-color: #2E3338;
+}
+
+.p-h,
+.panel-body > div,
+.custom-table > thead > tr > th,
+.custom-table > tbody > tr > td,
+.custom-table > tbody > tr > td > input,
+.custom-comments > input {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.custom-table > tbody > tr > td > div {
+    width: 81%;
+    margin-left: 4%;
+    position: relative;
+    float: left;
+}
+
+.custom-input {
+    width: 12%;
+    margin-left: 3%;
+    position: relative;
+    float: left;
+    font-size: 13px;
+}
+
+.ui-widget-content {
+    background-color: #4FAA4F;
+}
+
+.custom-comments {
+    position: fixed;
+    width: 40%;
+    height: 19%;
+    left: 21%;
+    top: 80%;
+}
+
+.custom-comments > textarea {
+    width: 100%;
+    height: 100%;
+}
+
+textarea,
+.ui-dialog textarea,
+.custom-comments > input {
+    resize: none;
+    background-color: inherit;
+    color: #BEC8C8;
+    border: 1px solid #1C1E22;
+    outline: none;
+}
+
+.custom-comments > input {
+    position: absolute;
+    top: 81%;
+    width: 80%;
+}
+
+.custom-comments > button {
+    position: absolute;
+    width: 19%;
+    top: 81.5%;
+    left: 81%;
+}
+
+#text-question-comment {
+    resize: none;
+}
+
+.ui-dialog {
+    padding: .3em;
+    background-color: #2E3338;
+}
+
+.ui-dialog .ui-widget-header {
+    background-color: #3074AE;
+    border: none;
+}
+
+.ui-dialog textarea {
+    width: 300px;
+}
+
+#template-name {
+    height: 25px;
+}
+
+#question-table {
+    height: inherit;
+}
+
+.loading td {
+    background: url("../images/icons/preload_xs.gif") no-repeat center center;
+}
+
+
+

@@ -1,0 +1,58 @@
+package com.levserj.service.mysql;
+
+import com.levserj.domain.Item;
+import com.levserj.repository.ItemRepository;
+import com.levserj.service.ItemService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.NoSuchElementException;
+
+/**
+ * Created by Serhii Levchynskyi on 27.04.2016.
+ */
+@Service
+public class MySQLItemService implements ItemService {
+
+    private static final Logger LOG = LoggerFactory.getLogger(ItemService.class);
+
+    @Autowired
+    private ItemRepository repository;
+
+    @Override
+    public Item createItem(Item item) {
+        return repository.save(item);
+    }
+
+    @Override
+    public Item readItemById(Long id) {
+        return repository.findOne(id);
+    }
+
+    @Override
+    public List<Item> readAllItems() {
+        return (List<Item>) repository.findAll();
+    }
+
+    @Override
+    public Item updateItem(Item item) {
+        if (!repository.exists(item.getId())) {
+            LOG.error("Item with id: {} doesn't exist", item.getId());
+            throw new NoSuchElementException("No such item: " + item.getId() + "  " + item.getName());
+        }
+        return repository.save(item);
+    }
+
+    @Override
+    public boolean deleteItem(Long id) {
+        if (repository.exists(id)) {
+            repository.delete(id);
+            return true;
+        }
+        LOG.error("Item with id:" + id + "doesn't exist");
+        throw new NoSuchElementException("No item with id:" + id);
+    }
+}

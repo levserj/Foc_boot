@@ -1,0 +1,25 @@
+.myContainer {
+    margin: auto;
+}
+
+.left {
+    float: left;
+    width: 60%;
+}
+
+.right {
+    float: right;
+    width: 30%;
+}
+
+.items input {
+    display: none;
+}
+
+.items.edit span {
+    display: none;
+}
+
+.items.edit input {
+    display: initial;
+}
