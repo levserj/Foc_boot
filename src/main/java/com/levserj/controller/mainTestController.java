@@ -13,7 +13,7 @@ public class mainTestController {
 
     @RequestMapping("/")
     public ModelAndView root() {
-        return new ModelAndView("signUp");
+        return new ModelAndView("mainTest");
     }
 
     @RequestMapping("/foc")
