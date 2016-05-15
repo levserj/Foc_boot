@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: SD
@@ -11,6 +13,13 @@
 <head>
     <title>FOC- Makes someone happy</title>
     <meta charset="utf-8">
+
+    <script src="/resources/jquery/jquery-2.2.2.min.js"></script>
+    <script src="/resources/jquery/jquery-ui/jquery-ui.js"></script>
+    <script src="/resources/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="/resources/js/signUp.js"></script>
+
     <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/style.css"/>">
     <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/skin.css"/>">
 </head>
@@ -20,7 +29,7 @@
 
         <div id="nav">
             <ul class="menu">
-                <li><a href="${pageContext.request.contextPath}/forms/signUp.jsp">Sing up</a></li>
+                <li><a href="${pageContext.request.contextPath}/signUp">Sing up</a></li>
                 <li><a href="${pageContext.request.contextPath}/forms/signIn.jsp">Sing in</a></li>
             </ul>
         </div>
@@ -29,19 +38,22 @@
     <!--end header-->
     <div id="featured-section">
         <div class="container">
-            <form id="contact" action="${pageContext.request.contextPath}/SignUpServlet" method="post">
+            <form id="contact" modelAttribute="userForm" action=# method="post">
                 <h3>Create new user</h3>
                 <fieldset>
-                    <input name="name" placeholder="Name" tabindex="2" required>
+                    <input id="firstName" placeholder="firstName" tabindex="2" required>
                 </fieldset>
                 <fieldset>
-                    <input name="email" placeholder="E-mail" type="email" tabindex="2" required>
+                    <input id="lastName" placeholder="lastName" tabindex="2" required>
                 </fieldset>
                 <fieldset>
-                    <input name="pwd" placeholder="Password" type="password" tabindex="3" required>
+                    <input id="email" placeholder="E-mail" type="email" tabindex="2" required>
                 </fieldset>
                 <fieldset>
-                    <button name="Add" type="Add" id="contact-Add" data-Add="...Sending">Sign Up</button>
+                    <input id="pwd" placeholder="Password" type="password" tabindex="3" required>
+                </fieldset>
+                <fieldset>
+                    <button name="Add" type="submit" id="signUp" data-Add="...Sending">Sign Up</button>
                 </fieldset>
             </form>
         </div>

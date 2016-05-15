@@ -41,7 +41,7 @@ public class MySQLItemService implements ItemService {
     public Item updateItem(Item item) {
         if (!repository.exists(item.getId())) {
             LOG.error("Item with id: {} doesn't exist", item.getId());
-            throw new NoSuchElementException("No such item: " + item.getId() + "  " + item.getName());
+            throw new NoSuchElementException("No such item: " + item.getId() + "  " + item.getTitle());
         }
         return repository.save(item);
     }
@@ -53,6 +53,6 @@ public class MySQLItemService implements ItemService {
             return true;
         }
         LOG.error("Item with id:" + id + "doesn't exist");
-        throw new NoSuchElementException("No item with id:" + id);
+        return false;
     }
 }

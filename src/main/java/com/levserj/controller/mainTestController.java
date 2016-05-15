@@ -13,12 +13,19 @@ public class mainTestController {
 
     @RequestMapping("/")
     public ModelAndView root() {
-        return new ModelAndView("mainTest");
+        return new ModelAndView("main");
     }
 
     @RequestMapping("/foc")
     public ModelAndView mainTest(@RequestParam(required = false, defaultValue = "World") String name) {
         return new ModelAndView("mainTest", "name", name);
+    }
+
+    @RequestMapping("/signUp")
+    public ModelAndView signUp(ModelAndView mav) {
+/*        mav.addObject("userForm", new User());*/
+        mav.setViewName("signUp");
+        return mav;
     }
 
 }
