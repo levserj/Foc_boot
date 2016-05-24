@@ -28,4 +28,11 @@ public class mainTestController {
         return mav;
     }
 
+    @RequestMapping("/login")
+    public ModelAndView signIn(ModelAndView mav) {
+/*        mav.addObject("userForm", new User());*/
+        mav.setViewName("signIn");
+        return mav;
+    }
+
 }

@@ -1,35 +1,53 @@
 package com.levserj.config;
 
-/*import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;*/
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
 /**
  * Created by Serhii Levchynskyi on 11.05.2016.
  */
-/*@Configuration
-@Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)*/
-public class SpringSecurityConfig /*extends WebSecurityConfigurerAdapter*/ {
+@Configuration
+@Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
+public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 
- /*   @Override
+    @Autowired
+    private UserDeatilsServiceImpl customUserDetailsService;
+
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth
+                .userDetailsService(customUserDetailsService);
+    }
+
+    @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-*//*                .exceptionHandling()
-                .accessDeniedPage("/web/accessdenied")
-                .and()*//*
+                .exceptionHandling()
+/*                .accessDeniedPage("/web/accessdenied")*/
+                .and()
                 .authorizeRequests()
-*//*                .antMatchers("main").permitAll()*//*
+                .antMatchers("/signUp", "/rest/**", "/resources/**").permitAll()
                 .anyRequest().authenticated()
-                *//*.antMatchers("/web/admin/interviewers*//**//**").hasAuthority("ADMIN")*//*
+                .and()
+                .csrf().disable()
+                .formLogin()
+                .and()
+                .httpBasic();
+/*                .antMatchers("/web/admin/interviewers*").hasAuthority("ADMIN")
                 .and()
                 .formLogin()
-*//*                .loginPage("/web/login")
+                .loginPage("/web/login")
                 .defaultSuccessUrl("/web/groups")
                 .permitAll()
-                .failureUrl("/web/loginerror")*//*
+                .failureUrl("/web/loginerror")
                 .and()
                 .logout()
-                .permitAll();
-*//*                .and()
-                .csrf().disable();*//*
-    }*/
+                .permitAll();*/
+
+    }
 }

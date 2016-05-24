@@ -26,13 +26,7 @@ public class User implements Serializable, Comparable<User> {
     @NotNull
     private String password;
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
+    private String authorities;
 
     public User() {
     }
@@ -56,6 +50,14 @@ public class User implements Serializable, Comparable<User> {
         this.firstName = firstName;
         this.lastName = lastName;
         this.items = items;
+    }
+
+    public User(String authorities, String password, String lastName, String firstName, String email) {
+        this.authorities = authorities;
+        this.password = password;
+        this.lastName = lastName;
+        this.firstName = firstName;
+        this.email = email;
     }
 
     public Long getId() {
@@ -96,6 +98,22 @@ public class User implements Serializable, Comparable<User> {
 
     public void setItems(List<Item> items) {
         this.items = items;
+    }
+
+    public String getAuthorities() {
+        return authorities;
+    }
+
+    public void setAuthorities(String authorities) {
+        this.authorities = authorities;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override

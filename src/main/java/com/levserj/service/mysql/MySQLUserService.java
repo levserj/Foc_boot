@@ -33,6 +33,10 @@ public class MySQLUserService implements UserService {
         return repository.findOne(id);
     }
 
+    public User readUserByEmail(String email) {
+        return repository.findUserByEmail(email);
+    }
+
     @Override
     public List<User> readAllUsers() {
         return (List<User>) repository.findAll();

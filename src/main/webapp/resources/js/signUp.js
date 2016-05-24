@@ -8,7 +8,8 @@ $(document).ready(function () {
             email: $("#email").val(),
             firstName: $("#firstName").val(),
             lastName: $("#lastName").val(),
-            password: $("#pwd").val()
+            password: $("#pwd").val(),
+            authorities: "ROLE_USER"
         };
         console.log(user);
         $.ajax({

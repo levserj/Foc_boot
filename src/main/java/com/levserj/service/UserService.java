@@ -13,6 +13,8 @@ public interface UserService {
 
     User readUserById(Long id);
 
+    User readUserByEmail(String s);
+
     List<User> readAllUsers();
 
     User updateUser(User user);
