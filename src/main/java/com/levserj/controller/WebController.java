@@ -1,15 +1,22 @@
 package com.levserj.controller;
 
+import com.levserj.domain.User;
+import com.levserj.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.security.Principal;
 
 /**
  * Created by Serhii Levchynskyi on 18.04.2016.
  */
 @Controller()
-public class mainTestController {
+public class WebController {
+
+    @Autowired
+    UserService userService;
 
     @RequestMapping("/")
     public ModelAndView root() {
@@ -17,8 +24,8 @@ public class mainTestController {
     }
 
     @RequestMapping("/foc")
-    public ModelAndView mainTest(@RequestParam(required = false, defaultValue = "World") String name) {
-        return new ModelAndView("mainTest", "name", name);
+    public ModelAndView foc() {
+        return new ModelAndView("main");
     }
 
     @RequestMapping("/signUp")
@@ -32,6 +39,14 @@ public class mainTestController {
     public ModelAndView signIn(ModelAndView mav) {
 /*        mav.addObject("userForm", new User());*/
         mav.setViewName("signIn");
+        return mav;
+    }
+
+    @RequestMapping("/myPage")
+    public ModelAndView myPage(ModelAndView mav, Principal principal) {
+        User currentUser = userService.readUserByEmail(principal.getName());
+        mav.addObject("userId", currentUser.getId());
+        mav.setViewName("myPage");
         return mav;
     }
 

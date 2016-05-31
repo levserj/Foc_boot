@@ -96,4 +96,15 @@ public class ItemRestController {
             return new ResponseEntity(NO_CONTENT);
         }
     }
+
+    @RequestMapping("/user/{ownerId}")
+    public ResponseEntity readItemsByUserId(@PathVariable("ownerId") Long id) {
+        List<Item> items = itemService.readItemsByOwner(id);
+        if (items == null) {
+            return new ResponseEntity<>(NO_CONTENT);
+        } else {
+            LOG.info("Reading items by user id = {}: OK", id);
+            return new ResponseEntity<>(items, OK);
+        }
+    }
 }

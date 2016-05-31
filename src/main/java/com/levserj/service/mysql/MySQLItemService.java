@@ -55,4 +55,9 @@ public class MySQLItemService implements ItemService {
         LOG.error("Item with id:" + id + "doesn't exist");
         return false;
     }
+
+    @Override
+    public List<Item> readItemsByOwner(Long ownerId) {
+        return repository.findItemByOwnerId(ownerId);
+    }
 }

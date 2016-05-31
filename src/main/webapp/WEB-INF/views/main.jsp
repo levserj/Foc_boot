@@ -3,47 +3,83 @@
 <html lang="en">
 <head>
     <title>FOC- Makes someone happy</title>
-    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/resources/css/input.css"/>
+    <link rel="stylesheet" href="/resources/css/template.css"/>
+
 
     <script src="/resources/jquery/jquery-2.2.2.min.js"></script>
-    <script src="/resources/jquery/jquery-ui/jquery-ui.js"></script>
+
     <script src="/resources/bootstrap/js/bootstrap.min.js"></script>
 
     <script src="/resources/js/main.js"></script>
-
-    <link type="text/css" rel="stylesheet" href="/resources/css/style.css">
-    <link type="text/css" rel="stylesheet" href="/resources/css/skin.css">
-
 </head>
-<body class="home">
-<div id="wrap">
-    <div id="header"><img src="<c:url value="/resources/images/logo.png"/>" width="400" height="49"/>
+<body>
+<nav class="navbar navbar-default" style="background-color: #222F3C">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" style="padding-left: 3em"><img
+                    src="<c:url value="/resources/images/logo.png"/>" width="400" height="45px"/></a>
+        </div>
 
-        <div id="nav">
-            <ul class="menu">
-                <li><a href="${pageContext.request.contextPath}/signUp">Sing up</a></li>
-                <li><a href="${pageContext.request.contextPath}/forms/signIn.jsp">Sing in</a></li>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="min-height: 80px">
+            <%-- <ul class="nav navbar-nav">
+                 <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                 <li><a href="#">Link</a></li>
+                 <li class="dropdown">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                     <ul class="dropdown-menu" role="menu">
+                         <li><a href="#">Action</a></li>
+                         <li><a href="#">Another action</a></li>
+                         <li><a href="#">Something else here</a></li>
+                         <li class="divider"></li>
+                         <li><a href="#">Separated link</a></li>
+                         <li class="divider"></li>
+                         <li><a href="#">One more separated link</a></li>
+                     </ul>
+                 </li>
+             </ul>--%>
+            <form class="navbar-form navbar-left" role="search" style="padding-left: 10em; padding-top: 0.7em">
+                <div class="form-group">
+                    <input class="form-control" placeholder="Search" type="text">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right" style="font-size: 26px; padding-top: 0.4em">
+
+
+                <li><a href="/signUp">Sing up</a></li>
+                <li><a href="/login">Sing in</a></li>
+                <li><a href="/logout">Sign Out</a></li>
+                <li><a href="/myPage">MyPage</a></li>
+
+
             </ul>
         </div>
-        <!--end nav-->
     </div>
-    <!--end header-->
-    <div id="featured-section">
-        <h2></h2>
+</nav>
+<div id="featured-section" style="text-align: center">
+    <h2>MAKE SOMEONE HAPPY</h2>
 
-        <div id="circles"><img class="first" src="/resources/images/circle-red.png"/>
-            <img src="/resources/images/circle-pink.png"/>
-            <img src="/resources/images/circle-orange.png"/>
-            <img src="/resources/images/circle-yellow.png"/></div>
-        <!--end circles-->
-        <br><br>
+    <div id="circles"><img class="first" src="/resources/images/circle-red.png"/>
+        <img style="padding-left: 2em" src="/resources/images/circle-pink.png"/>
+        <img style="padding-left: 2em" src="/resources/images/circle-orange.png"/>
+        <img style="padding-left: 2em" src="/resources/images/circle-yellow.png"/></div>
+    <!--end circles-->
+    <br><br>
 
-        <h3 align="center">${requestScope.message}</h3>
-    </div>
-    <!--end featured-section-->
+    <h3 align="center">${requestScope.message}</h3>
 </div>
 
-<table class="simple-little-table" cellspacing='0' align="center">
+<table class="table table-striped table-hover " style="width: auto; margin: 0 auto">
 
     <tr>
         <th>ID</th>
@@ -51,10 +87,10 @@
         <th>DESCRIPTION</th>
         <th>OWNER</th>
     </tr>
+
     <tbody id="mainTable">
     <!-- Populated by JS -->
     </tbody>
-
 </table>
 
 <!--end wrap-->

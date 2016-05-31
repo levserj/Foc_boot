@@ -19,4 +19,6 @@ public interface ItemService {
 
     boolean deleteItem(Long id);
 
+    List<Item> readItemsByOwner(Long ownerId);
+
 }
