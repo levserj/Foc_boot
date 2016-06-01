@@ -51,18 +51,14 @@
     </div>
 </nav>
 
-
-<input id="itemToEditId" type="hidden" value="">
-<input id="activeTemplateId" type="hidden" value="">
-
 <div id="featured-section" style="text-align: center">
     <h2>MAKE SOMEONE HAPPY</h2>
     <input id="userId" type="hidden" value="${userId}">
-
+    <input id="itemToEditId" type="hidden" value="">
     <h3 align="center">${requestScope.message}</h3>
 </div>
 <div class="left">
-    <form class="form-horizontal" style="padding-top: 5em">
+    <form id="itemForm" class="form-horizontal" style="padding-top: 5em">
         <fieldset>
             <legend style="padding-left: 7em">Add/edit giveaway item</legend>
             <div class="form-group">
@@ -85,7 +81,7 @@
                 <label class="col-lg-2 control-label"></label>
 
                 <div class="col-lg-10">
-                    <a href="" class="btn btn-default" id="addItem">Save</a>
+                    <button id="addItem" type="submit" class="btn btn-primary">Save</button>
                 </div>
                 <br><br>
             </div>
@@ -99,13 +95,15 @@
     </div>
     <%--    <button class="btn btn-default" id="saveQuestionsOrder">Save questions order</button>
         <br><br>--%>
-    <table class="table table-striped table-hover" id="templateQuestions">
+    <table style="table-layout: fixed; word-wrap: break-word;" class="table table-striped table-hover"
+           id="templateQuestions">
         <thead>
         <tr>
 
-            <th>TITLE</th>
-            <th>DESCRIPTION</th>
-
+            <th class="col-md-3">TITLE</th>
+            <th class="col-md-8">DESCRIPTION</th>
+            <th class="col-md-1"></th>
+            <th class="col-md-1"></th>
         </tr>
         </thead>
         <tbody id="myItems">

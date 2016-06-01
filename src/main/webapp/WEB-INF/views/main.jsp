@@ -79,13 +79,13 @@
     <h3 align="center">${requestScope.message}</h3>
 </div>
 
-<table class="table table-striped table-hover " style="width: auto; margin: 0 auto">
+<table style="table-layout: fixed; word-wrap: break-word;" class="table table-striped table-hover ">
 
     <tr>
-        <th>ID</th>
-        <th>TITLE</th>
-        <th>DESCRIPTION</th>
-        <th>OWNER</th>
+        <th class="col-md-1">ID</th>
+        <th class="col-md-3">TITLE</th>
+        <th class="col-md-8">DESCRIPTION</th>
+        <th class="col-md-1">OWNER</th>
     </tr>
 
     <tbody id="mainTable">
