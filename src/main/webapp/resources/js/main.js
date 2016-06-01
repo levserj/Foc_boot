@@ -13,6 +13,7 @@ $(document).ready(function () {
                     '<td>' + item.id + '</td>' +
                     '<td>' + item.title + '</td>' +
                     '<td>' + item.description + '</td>' +
+                    '<td>' + item.owner.email + '</td>' +
                     '</tr>'
                 );
             });

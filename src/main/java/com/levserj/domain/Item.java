@@ -1,7 +1,5 @@
 package com.levserj.domain;
 
-import org.hibernate.validator.constraints.NotEmpty;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
@@ -15,14 +13,12 @@ public class Item implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
-    @NotEmpty
     @NotNull
     private String title;
     @NotNull
-    @NotEmpty
     private String description;
     @JoinColumn
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne()
     private User owner;
 
     public Item() {
