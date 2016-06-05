@@ -8,22 +8,24 @@ $(document).ready(function () {
             email: $("#email").val(),
             firstName: $("#firstName").val(),
             lastName: $("#lastName").val(),
-            password: $("#pwd").val(),
-            authorities: "ROLE_USER"
+            password: $("#pwd").val()
         };
         console.log(user);
         $.ajax({
             type: "POST",
             url: "/rest/users",
             data: JSON.stringify(user),
-            contentType: "application/json",
+            contentType: "application/json; charset=UTF-8",
+            dataType: "html",
             success: function (data) {
                 console.log("item JSON: " + JSON.stringify(data));
-                window.location.href = "http://localhost:8080/";
-
+                /*window.location.href = "http://localhost:8080/";*/
+            },
+            error: function (error) {
+                console.log(error);
+                console.log("Error");
+                $("#message").html("Couldn't create user " + user.email);
             }
         });
     });
-
-
 });

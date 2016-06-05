@@ -1,6 +1,7 @@
 package com.levserj.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -17,17 +18,20 @@ public class User implements Serializable, Comparable<User> {
     @Id
     @GeneratedValue
     private Long id;
+    @NotEmpty
     @NotNull
     @Column(unique = true)
     private String email;
+    @NotEmpty
     @NotNull
     private String firstName;
+    @NotEmpty
     @NotNull
     private String lastName;
     @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "owner")
     private List<Item> items;
-
+    @NotEmpty
     @NotNull
     private String password;
 

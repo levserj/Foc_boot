@@ -46,7 +46,7 @@ $(document).ready(function () {
                 success: function (result) {
                     console.log("Done creating item");
                 },
-                error: function () {
+                error: function (error) {
                     console.log("failed");
                 }
             });

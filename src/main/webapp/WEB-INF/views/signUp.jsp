@@ -1,6 +1,3 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: SD
@@ -9,55 +6,104 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <html lang="en">
 <head>
     <title>FOC- Makes someone happy</title>
-    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/resources/css/input.css"/>
+    <link rel="stylesheet" href="/resources/css/template.css"/>
 
     <script src="/resources/jquery/jquery-2.2.2.min.js"></script>
-    <script src="/resources/jquery/jquery-ui/jquery-ui.js"></script>
     <script src="/resources/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/resources/jquery/jquery-ui/jquery-ui.js"></script>
 
     <script src="/resources/js/signUp.js"></script>
-
-    <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/style.css"/>">
-    <link type="text/css" rel="stylesheet" href="<c:url value="/resources/css/skin.css"/>">
 </head>
-<body class="home">
-<div id="wrap">
-    <div id="header"><img src="<c:url value="/resources/images/logo.png"/>" width="400" height="49"/>
+<body>
+<nav class="navbar navbar-default" style="background-color: #222F3C">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/foc" style="padding-left: 3em"><img
+                    src="<c:url value="/resources/images/logo.png"/>" width="400" height="45px"/></a>
+        </div>
 
-        <div id="nav">
-            <ul class="menu">
-                <li><a href="${pageContext.request.contextPath}/signUp">Sing up</a></li>
-                <li><a href="${pageContext.request.contextPath}/forms/signIn.jsp">Sing in</a></li>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="min-height: 80px">
+
+            <form class="navbar-form navbar-left" role="search" style="padding-left: 10em; padding-top: 0.7em">
+                <div class="form-group">
+                    <input class="form-control" placeholder="Search" type="text">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right" style="font-size: 26px; padding-top: 0.4em">
+
+
+                <li><a href="/signUp">Sing up</a></li>
+                <li><a href="/login">Sing in</a></li>
+                <li><a href="/logout">Sign Out</a></li>
+                <li><a href="/myPage">MyPage</a></li>
+
+
             </ul>
         </div>
-        <!--end nav-->
     </div>
-    <!--end header-->
-    <div id="featured-section">
-        <div class="container">
-            <form id="contact" modelAttribute="userForm" action=# method="post">
-                <h3>Create new user</h3>
-                <fieldset>
-                    <input id="firstName" placeholder="firstName" tabindex="2" required>
-                </fieldset>
-                <fieldset>
-                    <input id="lastName" placeholder="lastName" tabindex="2" required>
-                </fieldset>
-                <fieldset>
-                    <input id="email" placeholder="E-mail" type="email" tabindex="2" required>
-                </fieldset>
-                <fieldset>
-                    <input id="pwd" placeholder="Password" type="password" tabindex="3" required>
-                </fieldset>
-                <fieldset>
-                    <button name="Add" type="submit" id="signUp" data-Add="...Sending">Sign Up</button>
-                </fieldset>
-            </form>
+</nav>
+<div style="margin: auto; width: 50%;">
+
+    <form class="form-horizontal">
+        <h3 id="message" style="padding-top: 2em"></h3>
+        <fieldset>
+            <legend style="text-align: center;">Create new user</legend>
+            <div class="form-group">
+                <label for="email" class="col-lg-2 control-label">Email</label>
+
+                <div class="col-lg-10">
+                    <input path="email" class="form-control" id="email" placeholder="Email" type="text"/>
+                    <%--<form:errors path="email"/>--%>
+                </div>
         </div>
-    </div>
+            <div class="form-group">
+                <label for="firstName" class="col-lg-2 control-label">First Name</label>
+
+                <div class="col-lg-10">
+                    <input path="firstName" class="form-control" id="firstName" placeholder="First Name" type="text"/>
+                    <%--<form:errors path="firstName"/>--%>
+                </div>
+        </div>
+            <div class="form-group">
+                <label for="lastName" class="col-lg-2 control-label">Last Name</label>
+
+                <div class="col-lg-10">
+                    <input path="lastName" class="form-control" id="lastName" placeholder="Last Name" type="text"/>
+                    <%--<form:errors path="lastName"/>--%>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="pwd" class="col-lg-2 control-label">Password</label>
+
+                <div class="col-lg-10">
+                    <input path="password" class="form-control" id="pwd" placeholder="Password" type="password"/>
+                    <%-- <form:errors path="password"/>--%>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                    <button id="signUp" type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
 </div>
+
 </body>
 </html>

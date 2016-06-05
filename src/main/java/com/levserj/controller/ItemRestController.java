@@ -25,7 +25,7 @@ import static org.springframework.http.HttpStatus.*;
 @RequestMapping("/rest/items")
 public class ItemRestController {
 
-    private static final Logger LOG = LoggerFactory.getLogger(ItemRestController.class);
+    private final Logger LOG = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private ItemService itemService;
@@ -34,7 +34,9 @@ public class ItemRestController {
     private UserService userService;
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity createItem(@RequestBody Item newItem, BindingResult result, UriComponentsBuilder uriComponentsBuilder) {
+    public ResponseEntity createItem(@RequestBody Item newItem,
+                                     BindingResult result,
+                                     UriComponentsBuilder uriComponentsBuilder) {
         if (result.hasErrors()) {
             LOG.error("Creating item: {}, BAD_REQUEST", result.getFieldError().getDefaultMessage());
             return new ResponseEntity<>(result.getFieldError().getDefaultMessage(), BAD_REQUEST);

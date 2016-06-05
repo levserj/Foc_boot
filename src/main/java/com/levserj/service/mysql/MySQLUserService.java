@@ -30,6 +30,7 @@ public class MySQLUserService implements UserService {
     @Override
     public User createUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setAuthorities("ROLE_USER");
         return repository.save(user);
     }
 

@@ -76,7 +76,7 @@
     <!--end circles-->
     <br><br>
 
-    <h3 align="center">${requestScope.message}</h3>
+    <h3 id="message" align="center">${requestScope.message}</h3>
 </div>
 
 <table style="table-layout: fixed; word-wrap: break-word;" class="table table-striped table-hover ">

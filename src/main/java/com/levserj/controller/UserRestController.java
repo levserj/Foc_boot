@@ -12,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.util.List;
 
 import static org.springframework.http.HttpStatus.*;
@@ -29,7 +30,9 @@ public class UserRestController {
     private UserService userService;
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity createUser(@RequestBody User newUser, BindingResult result, UriComponentsBuilder uriComponentsBuilder) {
+    public ResponseEntity createUser(@RequestBody @Valid User newUser,
+                                     BindingResult result,
+                                     UriComponentsBuilder uriComponentsBuilder) {
         if (result.hasErrors()) {
             LOG.error("Creating user: {}, BAD_REQUEST", result.getFieldError().getDefaultMessage());
             return new ResponseEntity<>(result.getFieldError().getDefaultMessage(), BAD_REQUEST);
