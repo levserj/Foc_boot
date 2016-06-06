@@ -20,7 +20,7 @@
     <script src="/resources/bootstrap/js/bootstrap.min.js"></script>
     <script src="/resources/jquery/jquery-ui/jquery-ui.js"></script>
 
-    <script src="/resources/js/signUp.js"></script>
+    <%--    <script src="/resources/js/signUp.js"></script>--%>
 </head>
 <body>
 <nav class="navbar navbar-default" style="background-color: #222F3C">
@@ -49,7 +49,7 @@
 
 
                 <li><a href="/signUp">Sing up</a></li>
-                <li><a href="/login">Sing in</a></li>
+                <li><a href="/signIn">Sing in</a></li>
                 <li><a href="/logout">Sign Out</a></li>
                 <li><a href="/myPage">MyPage</a></li>
 
@@ -60,39 +60,39 @@
 </nav>
 <div style="margin: auto; width: 50%;">
 
-    <form class="form-horizontal">
-        <h3 id="message" style="padding-top: 2em"></h3>
+    <form class="form-horizontal" action="/login" method="post">
+
+        <c:if test="${not empty error}">
+            <div class="alert alert-danger">
+                <p style="text-align: center">
+                    Login attempt failed, try again<br/>
+                    Caused : ${sessionScope["SPRING_SECURITY_LAST_EXCEPTION"].message}
+                </p>
+            </div>
+        </c:if>
+        <c:if test="${not empty logout}">
+            <div class="alert alert-success">
+                <p style="text-align: center">${logout}</p>
+            </div>
+        </c:if>
         <fieldset>
-            <legend style="text-align: center;">Create new user</legend>
+            <legend style="text-align: center;">Sign In</legend>
             <div class="form-group">
-                <label for="email" class="col-lg-2 control-label">Email</label>
+                <label for="username" class="col-lg-2 control-label">Email</label>
 
                 <div class="col-lg-10">
-                    <input path="email" class="form-control" id="email" placeholder="Email" type="text"/>
+                    <input path="email" class="form-control" id="username" name="username" placeholder="Email"
+                           type="text"/>
                     <%--<form:errors path="email"/>--%>
                 </div>
             </div>
-            <div class="form-group">
-                <label for="firstName" class="col-lg-2 control-label">First Name</label>
 
-                <div class="col-lg-10">
-                    <input path="firstName" class="form-control" id="firstName" placeholder="First Name" type="text"/>
-                    <%--<form:errors path="firstName"/>--%>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="lastName" class="col-lg-2 control-label">Last Name</label>
-
-                <div class="col-lg-10">
-                    <input path="lastName" class="form-control" id="lastName" placeholder="Last Name" type="text"/>
-                    <%--<form:errors path="lastName"/>--%>
-                </div>
-            </div>
             <div class="form-group">
                 <label for="pwd" class="col-lg-2 control-label">Password</label>
 
                 <div class="col-lg-10">
-                    <input path="password" class="form-control" id="pwd" placeholder="Password" type="password"/>
+                    <input path="password" class="form-control" id="password" name="password" placeholder="Password"
+                           type="password"/>
                     <%-- <form:errors path="password"/>--%>
                 </div>
             </div>

@@ -31,17 +31,23 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .exceptionHandling()
-/*                .accessDeniedPage("/web/accessdenied")*/
                 .and()
                 .authorizeRequests()
+
                 .antMatchers(/*HttpMethod.POST,*/ "/rest/**").permitAll()
-                .antMatchers("/", "foc", "/createNewUser", "/signUp", "/resources/**").permitAll()
+                .antMatchers("/", "/foc", "/signUp", "/resources/**").permitAll()
                 .anyRequest().authenticated()
+     /*           .antMatchers("myPage").authenticated()*/
                 .and()
-                .csrf().disable()
                 .formLogin()
+                .loginPage("/login").permitAll()
                 .and()
-                .httpBasic();
+                .logout().permitAll()
+                .and()
+                .httpBasic()
+                .and()
+                .csrf().disable();
+
 /*                .antMatchers("/web/admin/interviewers*").hasAuthority("ADMIN")
                 .and()
                 .formLogin()

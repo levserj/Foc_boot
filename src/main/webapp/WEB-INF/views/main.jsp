@@ -57,7 +57,7 @@
 
 
                 <li><a href="/signUp">Sing up</a></li>
-                <li><a href="/login">Sing in</a></li>
+                <li><a href="/signIn">Sing in</a></li>
                 <li><a href="/logout">Sign Out</a></li>
                 <li><a href="/myPage">MyPage</a></li>
 

@@ -5,6 +5,7 @@ import com.levserj.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.security.Principal;
@@ -30,14 +31,24 @@ public class WebController {
 
     @RequestMapping("/signUp")
     public ModelAndView signUp(ModelAndView mav) {
-        /*mav.addObject("emptyUser", new User());*/
+
         mav.setViewName("signUp");
         return mav;
     }
 
     @RequestMapping("/login")
-    public ModelAndView signIn(ModelAndView mav) {
-/*        mav.addObject("userForm", new User());*/
+    public ModelAndView signIn(
+            @RequestParam(value = "error", required = false) String error,
+            @RequestParam(value = "logout", required = false) String logout) {
+
+        ModelAndView mav = new ModelAndView();
+        if (error != null) {
+            mav.addObject("error", "Invalid username and password!");
+        }
+
+        if (logout != null) {
+            mav.addObject("logout", "You've been successfully logged out.");
+        }
         mav.setViewName("signIn");
         return mav;
     }
@@ -49,6 +60,17 @@ public class WebController {
         mav.setViewName("myPage");
         return mav;
     }
+/*    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public ModelAndView logOut(HttpServletRequest request, HttpServletResponse response) {
+        ModelAndView model = new ModelAndView();
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null) {
+            new SecurityContextLogoutHandler().logout(request, response, auth);
+        }
+        model.addObject("logout", "true");
+        model.setViewName("signIn");
+        return model;
+    }*/
 
 /*    @RequestMapping("/createNewUser")
     public ModelAndView createNewUser(@ModelAttribute @Valid User newUser,

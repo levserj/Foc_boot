@@ -31,9 +31,11 @@ public class UserDeatilsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         LOG.debug("In the loadUserByUsername method in Custom UserService");
         com.levserj.domain.User user = userService.readUserByEmail(s);
-
-        Collection<GrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority(user.getAuthorities()));
-        return new User(user.getEmail(), user.getPassword(), authorities);
+        if (user != null) {
+            Collection<GrantedAuthority> authorities = new ArrayList<>();
+            authorities.add(new SimpleGrantedAuthority(user.getAuthorities()));
+            return new User(user.getEmail(), user.getPassword(), authorities);
+        }
+        throw new UsernameNotFoundException("User with E-mail " + s + " not found");
     }
 }
