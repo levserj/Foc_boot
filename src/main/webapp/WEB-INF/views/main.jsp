@@ -85,7 +85,7 @@
         <th class="col-md-1">ID</th>
         <th class="col-md-3">TITLE</th>
         <th class="col-md-8">DESCRIPTION</th>
-        <th class="col-md-2">OWNER E-MAIL</th>
+        <th class="col-md-2">OWNER's E-MAIL</th>
     </tr>
 
     <tbody id="mainTable">

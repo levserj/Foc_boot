@@ -98,7 +98,7 @@
             </div>
             <div class="form-group">
                 <div class="col-lg-10 col-lg-offset-2">
-                    <button id="signUp" type="submit" class="btn btn-primary">Submit</button>
+                    <button id="signIn" type="submit" class="btn btn-primary">Submit</button>
                 </div>
             </div>
         </fieldset>

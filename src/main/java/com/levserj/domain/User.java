@@ -54,11 +54,12 @@ public class User implements Serializable, Comparable<User> {
     }
 
 
-    public User(String email, String firstName, String lastName, List<Item> items) {
+    public User(String email, String firstName, String lastName, List<Item> items, String password) {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
         this.items = items;
+        this.password = password;
     }
 
     public User(String authorities, String password, String lastName, String firstName, String email) {
@@ -130,7 +131,7 @@ public class User implements Serializable, Comparable<User> {
 
     @Override
     public int hashCode() {
-        return email.hashCode();
+        return email != null ? email.hashCode() : 0;
     }
 
     @Override
@@ -138,7 +139,11 @@ public class User implements Serializable, Comparable<User> {
         if (this == obj) {
             return true;
         }
-        return ((obj instanceof User) && ((User) obj).getEmail().equals(this.getEmail()));
+        if (!(obj instanceof User) || obj == null) {
+            return false;
+        }
+        User user = (User) obj;
+        return (email != null ? email.equals(user.getEmail()) : user.getEmail() == null);
     }
 
     @Override

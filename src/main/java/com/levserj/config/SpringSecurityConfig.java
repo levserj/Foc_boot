@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -34,10 +35,10 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
 
-                .antMatchers(/*HttpMethod.POST,*/ "/rest/**").permitAll()
+                .antMatchers(HttpMethod.POST, "/rest/users/**").permitAll()
+                .antMatchers(HttpMethod.GET, "/rest/items/").permitAll()
                 .antMatchers("/", "/foc", "/signUp", "/resources/**").permitAll()
                 .anyRequest().authenticated()
-     /*           .antMatchers("myPage").authenticated()*/
                 .and()
                 .formLogin()
                 .loginPage("/login").permitAll()
@@ -47,18 +48,6 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
                 .httpBasic()
                 .and()
                 .csrf().disable();
-
-/*                .antMatchers("/web/admin/interviewers*").hasAuthority("ADMIN")
-                .and()
-                .formLogin()
-                .loginPage("/web/login")
-                .defaultSuccessUrl("/web/groups")
-                .permitAll()
-                .failureUrl("/web/loginerror")
-                .and()
-                .logout()
-                .permitAll();*/
-
     }
 
     @Bean
