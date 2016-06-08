@@ -49,8 +49,7 @@ public class UserTest {
         assertThat(newUser.getLastName(), is("lastN"));
         assertThat(newUser.getPassword(), is("z"));
         assertThat(newUser.getItems(), is(equalTo(items)));
-        assertThat(newItem.getTitle(), is("item1"));
-        assertThat(newItem.getDescription(), is("old stuff"));
+
     }
 
     @Test

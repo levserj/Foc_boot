@@ -139,7 +139,7 @@ public class User implements Serializable, Comparable<User> {
         if (this == obj) {
             return true;
         }
-        if (!(obj instanceof User) || obj == null) {
+        if (obj == null || !(obj instanceof User)) {
             return false;
         }
         User user = (User) obj;

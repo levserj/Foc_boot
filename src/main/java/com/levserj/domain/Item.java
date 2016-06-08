@@ -74,7 +74,14 @@ public class Item implements Serializable {
 
     @Override
     public int hashCode() {
-        return title.hashCode() + description.hashCode();
+        int hashcode = 0;
+        if (title != null) {
+            hashcode += title.hashCode();
+        }
+        if (description != null) {
+            hashcode += description.hashCode();
+        }
+        return hashcode;
     }
 
     @Override
@@ -82,6 +89,15 @@ public class Item implements Serializable {
         if (this == obj) {
             return true;
         }
-        return ((obj instanceof Item) && (((Item) obj).getId().equals(this.getId())));
+        if (obj == null || !(obj instanceof Item)) {
+            return false;
+        }
+        Item item = (Item) obj;
+        if (title == null ? item.getTitle() != null :
+                !title.equals(item.getTitle())) {
+            return false;
+        }
+        return !(description == null ? item.getDescription() != null :
+                !description.equals(item.getDescription()));
     }
 }
