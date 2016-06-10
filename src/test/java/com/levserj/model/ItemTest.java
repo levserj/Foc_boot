@@ -18,7 +18,6 @@ public class ItemTest {
     private static List<Item> items;
     private static Item newItem;
     private static User newUser;
-    private static User emptyUser;
 
     @BeforeClass
     public static void setUp() {
@@ -28,7 +27,7 @@ public class ItemTest {
     }
 
     @Test
-    public void createdItremHasAllFields() {
+    public void createdItemHasAllFields() {
         assertThat(newItem.getTitle(), is("item1"));
         assertThat(newItem.getDescription(), is("old stuff"));
         assertThat(newItem.getOwner(), is(equalTo(newUser)));

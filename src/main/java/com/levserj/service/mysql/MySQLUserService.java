@@ -11,7 +11,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 /**
  * Created by Serhii Levchynskyi on 27.04.2016.
@@ -29,6 +28,10 @@ public class MySQLUserService implements UserService {
 
     @Override
     public User createUser(User user) {
+        if (user.getEmail() != null & repository.findUserByEmail(user.getEmail()) != null) {
+            LOG.error("User must have unique E-mail, such {} email already exists", user.getEmail());
+            return null;
+        }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setAuthorities("ROLE_USER");
         return repository.save(user);
@@ -52,7 +55,7 @@ public class MySQLUserService implements UserService {
     public User updateUser(User user) {
         if (!repository.exists(user.getId())) {
             LOG.error("User with id: {} doesn't exist", user.getId());
-            throw new NoSuchElementException("No such user: " + user.getId());
+            return null;
         }
         return repository.save(user);
     }

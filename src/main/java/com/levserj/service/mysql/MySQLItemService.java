@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 /**
  * Created by Serhii Levchynskyi on 27.04.2016.
@@ -41,7 +40,7 @@ public class MySQLItemService implements ItemService {
     public Item updateItem(Item item) {
         if (!repository.exists(item.getId())) {
             LOG.error("Item with id: {} doesn't exist", item.getId());
-            throw new NoSuchElementException("No such item: " + item.getId() + "  " + item.getTitle());
+            return null;
         }
         return repository.save(item);
     }

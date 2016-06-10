@@ -68,7 +68,7 @@
                 <label for="email" class="col-lg-2 control-label">Email</label>
 
                 <div class="col-lg-10">
-                    <input path="email" class="form-control" id="email" placeholder="Email" type="text"/>
+                    <input path="email" class="form-control" id="email" placeholder="Email" type="email"/>
                     <%--<form:errors path="email"/>--%>
                 </div>
         </div>

@@ -16,7 +16,7 @@ $(document).ready(function () {
             url: "/rest/users",
             data: JSON.stringify(user),
             contentType: "application/json; charset=UTF-8",
-            dataType: "html",
+            dataType: "japplication/json; charset=UTF-8",
             success: function (data) {
                 console.log("item JSON: " + JSON.stringify(data));
                 /*window.location.href = "http://localhost:8080/";*/

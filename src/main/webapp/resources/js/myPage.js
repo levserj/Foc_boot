@@ -18,7 +18,7 @@ $(document).ready(function () {
         console.log(item);
         var itemToEditId = $("#itemToEditId");
         console.log(itemToEditId.val());
-        if (itemToEditId.val() != "") {
+        if (itemToEditId.val() !== "") {
             console.log("Item to edit ID: " + itemToEditId.val());
             $.ajax({
                 headers: {
