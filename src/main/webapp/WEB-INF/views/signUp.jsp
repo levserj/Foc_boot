@@ -37,7 +37,6 @@
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="min-height: 80px">
-
             <form class="navbar-form navbar-left" role="search" style="padding-left: 10em; padding-top: 0.7em">
                 <div class="form-group">
                     <input class="form-control" placeholder="Search" type="text">
@@ -45,14 +44,10 @@
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
             <ul class="nav navbar-nav navbar-right" style="font-size: 26px; padding-top: 0.4em">
-
-
                 <li><a href="/signUp">Sing up</a></li>
                 <li><a href="/login">Sing in</a></li>
                 <li><a href="/logout">Sign Out</a></li>
                 <li><a href="/myPage">MyPage</a></li>
-
-
             </ul>
         </div>
     </div>
@@ -65,26 +60,20 @@
             <legend style="text-align: center;">Create new user</legend>
             <div class="form-group">
                 <label for="email" class="col-lg-2 control-label">Email</label>
-
                 <div class="col-lg-10">
                     <input path="email" class="form-control" id="email" placeholder="Email" type="email"/>
-                    <%--<form:errors path="email"/>--%>
                 </div>
         </div>
             <div class="form-group">
                 <label for="firstName" class="col-lg-2 control-label">First Name</label>
-
                 <div class="col-lg-10">
                     <input path="firstName" class="form-control" id="firstName" placeholder="First Name" type="text"/>
-                    <%--<form:errors path="firstName"/>--%>
                 </div>
         </div>
             <div class="form-group">
                 <label for="lastName" class="col-lg-2 control-label">Last Name</label>
-
                 <div class="col-lg-10">
                     <input path="lastName" class="form-control" id="lastName" placeholder="Last Name" type="text"/>
-                    <%--<form:errors path="lastName"/>--%>
                 </div>
             </div>
             <div class="form-group">
@@ -92,7 +81,6 @@
 
                 <div class="col-lg-10">
                     <input path="password" class="form-control" id="pwd" placeholder="Password" type="password"/>
-                    <%-- <form:errors path="password"/>--%>
                 </div>
             </div>
             <div class="form-group">
@@ -103,6 +91,5 @@
         </fieldset>
     </form>
 </div>
-
 </body>
 </html>

@@ -6,11 +6,8 @@
 
     <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css"/>
 
-
     <script src="/resources/jquery/jquery-2.2.2.min.js"></script>
-
     <script src="/resources/bootstrap/js/bootstrap.min.js"></script>
-
     <script src="/resources/js/main.js"></script>
 </head>
 <body>
@@ -29,22 +26,6 @@
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="min-height: 80px">
-            <%-- <ul class="nav navbar-nav">
-                 <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-                 <li><a href="#">Link</a></li>
-                 <li class="dropdown">
-                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                     <ul class="dropdown-menu" role="menu">
-                         <li><a href="#">Action</a></li>
-                         <li><a href="#">Another action</a></li>
-                         <li><a href="#">Something else here</a></li>
-                         <li class="divider"></li>
-                         <li><a href="#">Separated link</a></li>
-                         <li class="divider"></li>
-                         <li><a href="#">One more separated link</a></li>
-                     </ul>
-                 </li>
-             </ul>--%>
             <form class="navbar-form navbar-left" role="search" style="padding-left: 10em; padding-top: 0.7em">
                 <div class="form-group">
                     <input class="form-control" placeholder="Search" type="text">
@@ -53,12 +34,10 @@
             </form>
             <ul class="nav navbar-nav navbar-right" style="font-size: 26px; padding-top: 0.4em">
 
-
                 <li><a href="/signUp">Sing up</a></li>
                 <li><a href="/signIn">Sing in</a></li>
                 <li><a href="/logout">Sign Out</a></li>
                 <li><a href="/myPage">MyPage</a></li>
-
 
             </ul>
         </div>
@@ -93,5 +72,4 @@
 
 <!--end wrap-->
 </body>
-
 </html>
