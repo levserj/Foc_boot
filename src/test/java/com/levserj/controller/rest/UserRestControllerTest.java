@@ -42,13 +42,11 @@ public class UserRestControllerTest {
     @Before
     public void setUp() {
         user = new User("y@y", "firstN", "lastN", "y");
-
         RestAssured.port = port;
     }
 
     @After
     public void tearDown() {
-        System.out.println("+++++++++++++++++++++ " + id);
         userService.deleteUser(Long.parseLong(id));
     }
 
