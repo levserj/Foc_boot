@@ -13,12 +13,11 @@
     <title>FOC- Makes someone happy</title>
 
     <link rel="stylesheet" href="/resources/bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/resources/css/input.css"/>
-    <link rel="stylesheet" href="/resources/css/template.css"/>
+
 
     <script src="/resources/jquery/jquery-2.2.2.min.js"></script>
     <script src="/resources/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/resources/jquery/jquery-ui/jquery-ui.js"></script>
+
 
     <%--    <script src="/resources/js/signUp.js"></script>--%>
 </head>

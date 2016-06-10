@@ -31,7 +31,6 @@ public class WebController {
 
     @RequestMapping("/signUp")
     public ModelAndView signUp(ModelAndView mav) {
-
         mav.setViewName("signUp");
         return mav;
     }
@@ -45,7 +44,6 @@ public class WebController {
         if (error != null) {
             mav.addObject("error", "Invalid username and password!");
         }
-
         if (logout != null) {
             mav.addObject("logout", "You've been successfully logged out.");
         }
@@ -60,35 +58,4 @@ public class WebController {
         mav.setViewName("myPage");
         return mav;
     }
-/*    @RequestMapping(value = "/logout", method = RequestMethod.GET)
-    public ModelAndView logOut(HttpServletRequest request, HttpServletResponse response) {
-        ModelAndView model = new ModelAndView();
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        if (auth != null) {
-            new SecurityContextLogoutHandler().logout(request, response, auth);
-        }
-        model.addObject("logout", "true");
-        model.setViewName("signIn");
-        return model;
-    }*/
-
-/*    @RequestMapping("/createNewUser")
-    public ModelAndView createNewUser(@ModelAttribute @Valid User newUser,
-                                      BindingResult result,
-                                      ModelAndView mav) {
-        if (result.hasErrors()){
-            mav.addObject("message", "Couldn't make an object user(binding error)");
-            mav.setViewName("signUp");
-        }
-        User user = userService.createUser(newUser);
-        if (user !=null){
-            mav.addObject("message", "User " + user.getEmail() + " created");
-            mav.setViewName("main");
-        } else {
-            mav.addObject("message", "User " + user.getEmail() + " was NOT created");
-            mav.setViewName("main");
-        }
-        return mav;
-    }*/
-
 }
