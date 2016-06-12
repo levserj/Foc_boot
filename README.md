@@ -12,6 +12,7 @@ Technologies used:
 - Spring-boot
 - Spring-data
 - Spring-security
+- JawsDB MySQL
 - REST
 - Embedded Tomcat
 - JUnit
