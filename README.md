@@ -1,11 +1,9 @@
 # Foc_boot
-Free of charge on SpringBoot
 
-This is a study project, a simple web-app, which is in fact a bulletin board. 
-It's designed for the people , willing to contribute their own stuff, which they no longer need,
-to someone for free. It can be anything, because all of us has some lockers, depo etc full of
-some useless for us things, which we don't use and will throw away as garbage sooner or later.
-But maybe someone is desperately looking for exactly the same VHS player we own, and this can make him happier for a moment)
+Free of charge on SpringBoot 
+
+Nowadays we are living in consumer society in which people often want to get new goods. During our life, all of us gather lots of stuff, some of which we use and some not. Some things become idle because of their age, some are partially broken and some were given to you as a present, but you have no need in them.  It can be anything from VHS movie collection and some plates and dishes, to an old bicycle or clothes that you don’t wear.
+FOC is a study project, simple bulletin board, where anyone can post their items, which they no longer need and ready to give to anyone willing to have that item. The only condition is that item should be given for free.
 
 Technologies used:
 - Maven
